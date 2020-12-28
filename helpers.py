@@ -30,7 +30,7 @@ def login_required(f):
     def decorated_function(*args, **kwargs):
         print(session.get("user_id"))
         if session.get("user_id") is None:
-            
+            return 
         return f(*args, **kwargs)
     return decorated_function
 
