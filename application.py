@@ -57,7 +57,7 @@ if not os.environ.get("API_KEY"):
 
 
 @app.route("/")
-
+@login_required
 def index():
     # connecting to the db
     conn = sqlite3.connect("finance.db")
@@ -123,7 +123,7 @@ def index():
 
 
 @app.route("/buy", methods=["GET", "POST"])
-
+@login_required
 def buy():
     """Buy shares of stock"""
     if request.method == "POST":
@@ -178,7 +178,7 @@ def buy():
 
 
 @app.route("/history")
-
+@login_required
 def history():
     """Show history of transactions"""
     # connect to db
@@ -248,7 +248,7 @@ def logout():
 
 
 @app.route("/quote", methods=["GET", "POST"])
-
+@login_required
 def quote():
     """Get stock quote."""
     # getting the stock and returning quoted.html
@@ -316,7 +316,7 @@ def register():
 
 
 @app.route("/sell", methods=["GET", "POST"])
-
+@login_required
 def sell():
     """Sell shares of stock"""
     # connecting to database
