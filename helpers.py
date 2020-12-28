@@ -29,7 +29,7 @@ def login_required(f):
     """
     @wraps(f)
     def decorated_function(*args, **kwargs):
-        print(session.get("user_id"))
+        
         # connecting to the db
         conn = sqlite3.connect("finance.db")
         # make db return list instead of tuple
