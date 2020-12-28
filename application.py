@@ -178,7 +178,6 @@ def buy():
 
 
 @app.route("/history")
-@login_required
 def history():
     """Show history of transactions"""
     # connect to db
