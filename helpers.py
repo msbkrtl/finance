@@ -2,8 +2,8 @@ import os
 import requests
 import urllib.parse
 import sqlite3
-
-from flask import redirect, render_template, request, session
+from flask_session import Session
+from flask import redirect, render_template, request
 from functools import wraps
 
 def apology(message, code=400):
