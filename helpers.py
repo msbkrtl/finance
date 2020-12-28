@@ -2,8 +2,7 @@ import os
 import requests
 import urllib.parse
 import sqlite3
-from flask_session import Session
-from flask import redirect, render_template, request
+from flask import redirect, render_template, request, session
 from functools import wraps
 
 def apology(message, code=400):
@@ -29,18 +28,8 @@ def login_required(f):
     """
     @wraps(f)
     def decorated_function(*args, **kwargs):
-        
-        # connecting to the db
-        conn = sqlite3.connect("finance.db")
-        # make db return list instead of tuple
-        conn.row_factory = lambda cursor, row: row[0]
-        c = conn.cursor()
-
-        # select stocks based on symbol and user_id provided by session and if there is no stock return has stocks 0
-        userid = c.execute("SELECT DISTINCT(symbol) FROM users WHERE id = ?",
-                                  [session["user_id"]]).fetchall()
-        print(userid)
-#         if session.get("user_id") is None:
+        if session.get("user_id") is None:
+              return f(*args, **kwargs)
 #             return redirect('/login')
         return f(*args, **kwargs)
     return decorated_function
