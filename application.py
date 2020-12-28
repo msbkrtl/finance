@@ -170,7 +170,7 @@ def buy():
         flash(
             f"Bought {number_of_shares_to_buy} shares {stock['name']} at the price of {stock['price']}!", "success")
         conn.commit()
-        conn.close()
+        
 
         return redirect(url_for("index"))
         # TODO ADD COMMIT CLOSE TO ALL FUNCTIONS
@@ -308,7 +308,7 @@ def register():
 
         # closing the db
         conn.commit()
-        conn.close()
+        
 
         return render_template("login.html")
 
@@ -367,7 +367,7 @@ def sell():
 
         # close the db
         conn.commit()
-        conn.close()
+        
 
         return render_template("sell.html", stock_symbols=stock_symbols)
 
