@@ -1,0 +1,29 @@
+{% extends "layout.html" %} {% block title %} Buy {% endblock %} {% block main
+%} {% if has_stocks %}
+<div class="price_form">
+    <h2>Portfolio</h2>
+    <div class="portfolio">
+        <span><strong>Symbol</strong></span>
+        <span class="stock_name"><strong>Stock</strong></span>
+        <span><strong>Shares</strong></span>
+        <span><strong>Price</strong></span>
+        <span><strong>Value</strong></span>
+
+        {% if context %}{% for i in range(context["symbols"] | length) %} {% for
+        key in context %}
+        <span>{{context[key][i]}}</span>
+        {% endfor %} {% endfor %}{% endif %}
+    </div>
+    <div class="balance">
+        <span>Current cash : {{money}}</span>
+        <span>Total balance : {{current_total}}</span>
+    </div>
+</div>
+{% else %}
+
+<h2>You don't have any stocks you can buy from buy page.</h2>
+<div class="balance">
+    <span>Current cash : $10000.0</span>
+    <span>Total balance : $10000.0</span>
+</div>
+{% endif %} {%endblock main%}

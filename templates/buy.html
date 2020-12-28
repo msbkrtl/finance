@@ -1,0 +1,27 @@
+{% extends "layout.html" %} {% block title %} Buy {% endblock %} {% block main
+%}
+
+<div class="price_form">
+    <form method="POST">
+        <fieldset class="form buy_fieldset">
+            <legend>Buy Stocks</legend>
+            <div class="form-group">
+                <input
+                    type="text"
+                    placeholder="Stock Symbol"
+                    name="symbol"
+                    class="form-control form-control-label buy1"
+                />
+                <input
+                    type="text"
+                    placeholder="Number of Shares"
+                    name="share"
+                    class="form-control form-control-label buy"
+                />
+            </div>
+        </fieldset>
+        <button type="submit" class="btn btn-primary">Buy</button>
+    </form>
+</div>
+
+{%endblock main%}

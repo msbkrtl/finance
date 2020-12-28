@@ -1,0 +1,23 @@
+{% extends "layout.html" %} {% block title %} Buy {% endblock %} {% block main
+%}
+
+<div class="price_form">
+    <h2>Past Transactions</h2>
+    <div class="history">
+        <span><strong>Name</strong></span>
+        <span><strong>Symbol</strong></span>
+        <span><strong>Price</strong></span>
+        <span><strong>Amount</strong></span>
+        <span><strong>Time</strong></span>
+        
+        {% for i in range(transactions | length) %} 
+        {% for item in transactions[i] %}
+        {% if transactions[i][3] < 0 %}
+            <span class="sold">{{item}}</span>
+        {% else %}
+            <span class="bought">{{item}}</span>
+        {% endif %}
+        {% endfor %} {% endfor %}
+    </div>
+</div>
+{%endblock main%}

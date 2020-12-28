@@ -1,0 +1,22 @@
+{% extends "layout.html" %} {% block title %} {{stock}} {% endblock %} {% block
+main %}
+
+<div class="price_form">
+    <form method="POST">
+        <fieldset class="form">
+            <legend>Enter a Stock Symbol</legend>
+            <div class="form-group">
+                
+                <input
+                    type="text"
+                    name="symbol"
+                    class="form-control form-control-label"
+                    placeholder="Stock Symbol"
+                />
+            </div>
+        </fieldset>
+        <button type="submit" class="btn btn-primary">Quote</button>
+    </form>
+</div>
+
+{%endblock main%}
